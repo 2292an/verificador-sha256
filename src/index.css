@@ -1,0 +1,30 @@
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #263b3c;
+  background: #f3f6f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --color-primary: #176b58;
+  --color-primary-hover: #105443;
+  --color-border: #d6e1e4;
+  --color-muted: #53676e;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 280px; }
+
+button, input, textarea { font: inherit; }
+
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+
+::selection { background: #c8e8df; color: #163e34; }
+
+:focus-visible { outline: 3px solid #287eb3; outline-offset: 4px; }
+
+h1, h2, p { margin-top: 0; }
+
+h1, h2 { color: #203c39; text-wrap: balance; }
+
+p { line-height: 1.65; }

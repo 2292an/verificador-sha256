@@ -1,0 +1,11 @@
+.info { border-left: 3px solid #91b5ce; padding-left: 18px; }
+
+.info p {
+  margin-bottom: 10px;
+  color: var(--color-muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.info p:last-child { margin-bottom: 0; }
+.info strong { color: #2c4652; font-weight: 600; margin-right: 5px; }

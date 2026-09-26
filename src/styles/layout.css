@@ -1,0 +1,59 @@
+.container {
+  width: min(100% - 48px, 880px);
+  margin: 48px auto 64px;
+  background: #fff;
+  border-top: 5px solid var(--color-primary);
+  box-shadow: 0 8px 36px #223c4610;
+}
+
+.container > header {
+  padding: 38px 40px 30px;
+  background: #edf6f2;
+  border-bottom: 1px solid #d4e6df;
+}
+
+.container h1 {
+  max-width: 650px;
+  margin-bottom: 14px;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.container > header p {
+  max-width: 610px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 16px;
+}
+
+.card {
+  min-width: 0;
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card h2, .result h2 {
+  margin-bottom: 18px;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.card > p { margin: 20px 0 8px; color: var(--color-muted); }
+
+.card > div:has(> button) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 16px auto 32px; }
+  .container > header { padding: 28px 20px; }
+  .container h1 { font-size: 26px; }
+  .card { padding: 24px 20px; }
+  .card h2, .result h2 { font-size: 18px; }
+}

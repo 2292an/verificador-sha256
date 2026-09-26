@@ -1,0 +1,10 @@
+.result { padding: 26px 40px; border-left: 4px solid; }
+.result h2 { margin-bottom: 8px; color: inherit; }
+.result p { margin-bottom: 0; overflow-wrap: anywhere; }
+.result.verified { color: #19573c; background: #edf8f0; border-color: #33845a; }
+.result.modified { color: #8a303e; background: #fff0f2; border-color: #bc4d60; }
+.result.error { color: #744d0b; background: #fff8e5; border-color: #bd8a21; }
+
+@media (max-width: 600px) {
+  .result { padding: 24px 20px; }
+}
