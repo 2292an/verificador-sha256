@@ -48,6 +48,7 @@ function App() {
   }
 
   function compareWithReference() {
+    // aca se hace la comparacion entre el hash calculado y el hash de referencia
     if (!hash || !referenceHash.trim()) {
       setResult("error");
 

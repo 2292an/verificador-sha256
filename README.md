@@ -1,75 +1,89 @@
-# React + TypeScript + Vite
+# Verificador de Integridad de Archivos con SHA-256
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada para verificar la integridad de archivos mediante el algoritmo criptográfico SHA-256.
 
-Currently, two official plugins are available:
+La solución permite seleccionar un archivo desde el equipo del usuario, calcular su hash SHA-256 y mostrar el valor completo en formato hexadecimal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Posteriormente, el hash obtenido puede compararse de dos formas:
 
-## React Compiler
+1. Contra un hash de referencia ingresado manualmente.
+2. Contra el hash calculado de un segundo archivo.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A partir de esta comparación, la aplicación muestra de forma clara si:
 
-## Expanding the ESLint configuration
+- La integridad fue verificada.
+- El archivo fue modificado.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Además, la aplicación permite consultar el hash calculado en VirusTotal mediante un enlace dinámico.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Objetivo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+El objetivo de esta aplicación es comprobar si un archivo conserva exactamente su contenido original después de haber sido almacenado, copiado, transmitido o modificado.
+
+La verificación se realiza mediante SHA-256. Si el contenido del archivo cambia, aunque sea en un solo carácter o byte, el hash calculado también cambia.
+
+## Instrucciones de ejecución
+
+clonar el proyecto
 
 ```
+npm install
+```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+```
+npm run dev
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Funcionalidades
 
+La aplicación permite:
+
+- Seleccionar un archivo desde el equipo.
+- Calcular el hash SHA-256 del archivo.
+- Mostrar el hash completo en formato hexadecimal.
+- Copiar el hash al portapapeles.
+- Comparar el hash contra un valor de referencia.
+- Comparar directamente dos archivos.
+- Mostrar si la integridad fue verificada.
+- Advertir si el archivo fue modificado.
+- Mostrar el nombre del archivo.
+- Mostrar el tamaño del archivo.
+- Mostrar la fecha de última modificación.
+- Consultar el hash SHA-256 en VirusTotal.
+
+---
+
+## Tecnologías utilizadas
+
+- React
+- TypeScript
+- Vite
+- Web Crypto API
+- HTML
+- CSS
+
+### React
+
+Se utiliza para construir la interfaz mediante componentes reutilizables.
+
+### TypeScript
+
+Se utiliza para agregar tipado estático y mejorar la claridad, mantenibilidad y control de errores del código.
+
+### Vite
+
+Se utiliza como herramienta para crear, ejecutar y compilar el proyecto.
+
+### Web Crypto API
+
+Se utiliza para calcular el hash SHA-256 directamente en el navegador.
+
+La operación principal se realiza mediante:
+
+```ts
+crypto.subtle.digest("SHA-256", arrayBuffer);
 ```
